@@ -1,4 +1,4 @@
-<h1>Editar Pessoa</h1>
+<h1>Editar Estado</h1>
 <div class="well">
     <form #formEstado="ngForm">
         <div class="form-group">
@@ -8,7 +8,7 @@
             #nome="ngModel"
             minlength="2" required>
             <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
-                <div [hidden]="!nome.errors.required">Digite o nome da pessoa.</div>
+                <div [hidden]="!nome.errors.required">Digite o nome do estado.</div>
                 <div [hidden]="!nome.errors.minlength">O nome deve conter ao menos 2 caracteres.</div>
             </div>
         </div>

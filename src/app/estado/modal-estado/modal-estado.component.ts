@@ -10,6 +10,4 @@ import { Estado } from 'src/app/shared';
 export class ModalEstadoComponent{
   @Input() estado!: Estado;
   constructor(public activeModal: NgbActiveModal) { }
-
-
 }

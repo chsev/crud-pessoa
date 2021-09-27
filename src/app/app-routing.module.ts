@@ -20,6 +20,10 @@ import { LoginRoutes } from './auth/auth-routing.module';
 
 import { AuthGuard } from './auth/auth.guard';
 import { HomeComponent } from './home/home.component';
+import { UsuarioRoutes } from './usuario/usuario-routing.module';
+// import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
+// import { InserirUsuarioComponent } from './usuario/inserir-usuario/inserir-usuario.component';
+// import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -42,7 +46,9 @@ const routes: Routes = [
   { path: 'estados/listar', component: ListarEstadoComponent, canActivate: [AuthGuard], data: {role: 'ADMIN,FUNC'} },
   { path: 'estados/novo', component: InserirEstadoComponent, canActivate: [AuthGuard], data: {role: 'ADMIN,FUNC'} },
   { path: 'estados/editar/:id', component: EditarEstadoComponent, canActivate: [AuthGuard], data: {role: 'ADMIN,FUNC'}},
+
   ...LoginRoutes,
+  ...UsuarioRoutes,
 
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data: {role: 'ADMIN,GERENTE,FUNC'} }
 

@@ -12,6 +12,9 @@ import { SharedModule } from './shared';
 import { AuthModule } from './auth/auth.module';
 import { HomeComponent } from './home/home.component';
 
+import { HttpClientModule} from '@angular/common/http';
+import { UsuarioModule } from './usuario/usuario.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,9 @@ import { HomeComponent } from './home/home.component';
     CidadeModule,
     EstadoModule,
     SharedModule,
-    AuthModule
+    AuthModule,
+    HttpClientModule,
+    UsuarioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
