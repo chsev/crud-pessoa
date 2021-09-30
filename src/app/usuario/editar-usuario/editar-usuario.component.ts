@@ -23,12 +23,18 @@ export class EditarUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.usuario = new Usuario;
     let id = +this.route.snapshot.params['id'];
-    this.usuarioService.buscarPorId(id).subscribe(usu => {
-      if (usu) {
-        this.usuario = usu;
+    this.usuarioService.buscarPorId(id).subscribe({
+      next: (usu: Usuario) => {
+        if (usu == null) {
+          console.log("Why?");
+        }
+        else{
+          this.usuario = usu;
+        }
       }
     });
   }
+
 
   atualizar(): void {
     // Verifica se o formulário é válido

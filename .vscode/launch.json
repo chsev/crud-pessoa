@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-UsuarioRestServiceApplication<usuario-rest-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.chsev.usuariorestservice.UsuarioRestServiceApplication",
+            "projectName": "usuario-rest-service",
+            "args": ""
+        }
+    ]
+}
