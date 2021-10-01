@@ -3,10 +3,10 @@ package com.chsev.usuariorestservice.controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class UsuarioController {
     public static List<Usuario> lista = new ArrayList<>();
 
+
     @PostMapping("/login")
     Usuario login(@RequestBody Login login) {
         Usuario usuario = lista.stream()
@@ -26,13 +27,12 @@ public class UsuarioController {
     }
 
 
-    @GetMapping(value = "/usuarios", params = "id")
-    Usuario buscarPorId(@RequestParam("id") int id){
+    @GetMapping(value = "/usuarios/{id}")
+    Usuario buscarPorId(@PathVariable("id") int id){
          Usuario usuario = lista.stream()
             .filter(usu -> usu.getId() == id  )
             .findAny().orElse(null);
         return usuario;
-        //return lista.get(0);
     }
 
 
@@ -42,33 +42,38 @@ public class UsuarioController {
     }
 
 
-
-
     @PostMapping("/usuarios")
-    Usuario inserir(@RequestParam("usuario") Usuario usuario) {
+    Usuario inserir(@RequestBody Usuario usuario) {
+        lista.add(usuario);
         Usuario usr = lista.stream()
         .filter(usu -> (usu.getId() == usuario.getId() ) )
         .findAny().orElse(null);
+
         return usr;
     }
 
 
-    @DeleteMapping("/usuarios")
-    Usuario remover(@RequestParam("id") int id){
+    @DeleteMapping("/usuarios/{id}")
+    Usuario remover(@PathVariable("id") int id){
         Usuario usuario = lista.stream()
         .filter(usu -> (usu.getId() == id ) )
         .findAny().orElse(null);
 
         lista.removeIf(usu -> usu.getId() == id );
-        
+
         return usuario;
     }
 
-    @PutMapping("/usuarios")
-    Usuario alterar(@RequestParam("usuario") Usuario usuario) {
+
+    @PutMapping("/usuarios/{id}")
+    Usuario alterar( @PathVariable("id") int id, @RequestBody Usuario usuario ) {
+        lista.removeIf(usu -> usu.getId() == usuario.getId() );
+        lista.add(usuario);
+
         Usuario usr = lista.stream()
         .filter(usu -> (usu.getId() == usuario.getId() ) )
         .findAny().orElse(null);
+
         return usr;
     }
 

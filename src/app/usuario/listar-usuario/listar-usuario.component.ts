@@ -17,10 +17,10 @@ export class ListarUsuarioComponent implements OnInit {
   usuarios!: Usuario[];
 
   constructor(private usuarioService: UsuarioService,
-    private modalService: NgbModal) { }
+              private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.usuarios = [];
+    //this.usuarios = [];
     this.listarTodos();
   }
 
@@ -42,6 +42,7 @@ export class ListarUsuarioComponent implements OnInit {
     if (confirm('Deseja realmente remover o usuario "' + usuario.nome + '"?')) {
       this.usuarioService.remover(usuario.id!).subscribe();
       this.listarTodos();
+      location.reload();
     }
   }
 

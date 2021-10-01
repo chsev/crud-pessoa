@@ -28,6 +28,7 @@ export class UsuarioService {
   }
 
   inserir(usuario: Usuario): Observable<Usuario>{
+    usuario.id = new Date().getTime()%100000;
     return this.httpClient.post<Usuario>(env.BASE_URL, JSON.stringify(usuario), this.httpOptions);
   }
 

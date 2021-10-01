@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  BASE_URL: "http://localhost:3000/usuarios/",
-  //BASE_URL: "http://localhost:8080/usuarios/",
+  //BASE_URL: "http://localhost:3000/usuarios/",
+  BASE_URL: "http://localhost:8080/usuarios/",
   LOGIN_BASE_URL: "http://localhost:8080/login/"
 };
 
