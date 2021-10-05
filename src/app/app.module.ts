@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 
 import { HttpClientModule} from '@angular/common/http';
 import { UsuarioModule } from './usuario/usuario.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UsuarioModule } from './usuario/usuario.module';
     SharedModule,
     AuthModule,
     HttpClientModule,
-    UsuarioModule
+    UsuarioModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
