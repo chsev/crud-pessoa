@@ -1,4 +1,44 @@
 # CrudPessoa
+Implementa uma versão completa do crud-pessoa baseado no material do professor Razer (http://www.razer.net.br/angular/)
+
+
+## Requisitos
+#### NODE.js (depende do SO):   
+https://nodejs.org/pt-br/download/package-manager/
+
+#### Angular CLI
+- Com Node instalado:   
+```
+npm install -g @angular/cli
+```
+
+#### Ambiente JAVA (para o web service em Spring):
+- JAVA 8 + Spring Boot + Maven
+- Pode precisar de outras coisas (sei lá, se vira...)
+
+## Rodando
+1. Clone o repositório
+```
+git clone https://github.com/chsev/crud-pessoa.git
+```
+2. Instale as dependências com 
+```
+npm install
+```
+3. execute a aplicação Angular com    
+```
+ng serve --open
+``` 
+4. Ative o web service (do contrário o login não funciona)
+```
+cd usuario-rest-service
+./mvnw spring-boot:run
+```
+- roda em localhost:8080
+- teste com http://localhost:8080/usuarios
+
+----
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
 
